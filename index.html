@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#153a5b">
-<title>MediLocker Hospital Preparation Portal</title>
+<title>MediLocker Hospital Preparation Portal</title><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{--navy:#173a5e;--blue:#1d79e8;--cyan:#42c4ee;--bg:#eef5f9;--card:#fff;--line:#d7e6ef;--text:#19334b;--muted:#70859a;--green:#1f9d72;--orange:#e29a37;--red:#d65c63}
 *{box-sizing:border-box}body{margin:0;font-family:Inter,"Noto Sans Thai",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
-.topbar{height:64px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:20}.brand{font-weight:900;color:var(--navy);font-size:20px}.badge{display:inline-flex;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800}.green{background:#e8f7f1;color:var(--green)}.blue{background:#eaf3ff;color:var(--blue)}.orange{background:#fff3df;color:#9d671d}.layout{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 64px)}.sidebar{background:#173a5e;color:#dce9f4;padding:20px 14px}.side-title{font-size:12px;opacity:.65;margin:6px 10px 12px}.nav{display:grid;gap:8px}.nav button{border:0;background:transparent;color:#dce9f4;text-align:left;padding:12px;border-radius:10px;font-weight:800;cursor:pointer}.nav button.active,.nav button:hover{background:#245379;color:#fff}.main{padding:24px}.hero{background:linear-gradient(135deg,#173a5e,#1d79e8);color:white;padding:22px;border-radius:20px}.hero h1{margin:4px 0 6px;font-size:30px}.hero p{margin:0;color:#e5f1fb}.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}.kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.kpi b{font-size:28px;color:var(--navy);display:block}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:16px;box-shadow:0 10px 24px rgba(30,70,105,.05)}.card h2{margin:0 0 8px;color:var(--navy)}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}input,select{padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfdff}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:12px;border-bottom:1px solid #edf2f5;font-size:14px}th{color:#5f7488;font-size:12px;text-transform:uppercase}tr:hover{background:#f7fbfe}.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:900;cursor:pointer}.primary{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff}.secondary{background:#edf5ff;color:var(--blue)}.ghost{background:#fff;border:1px solid var(--line);color:var(--navy)}.hidden{display:none!important}.order-header{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.info{background:#f8fbfd;border:1px solid var(--line);border-radius:14px;padding:14px}.info b{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}.med{display:grid;grid-template-columns:1.3fr .7fr .7fr .6fr;gap:10px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px;margin-top:9px}.checklist{display:grid;gap:10px}.check{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fbfdff}.check input{width:18px;height:18px}.zone{display:grid;grid-template-columns:1fr 1fr;gap:12px}.zonebox{border:1px solid var(--line);border-radius:14px;padding:14px}.zonebox h3{margin:0 0 8px;color:var(--navy)}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.step{padding:12px;border-radius:12px;background:#f3f6f8;border:1px solid var(--line);font-size:13px;font-weight:800}.step.done{background:#eaf8f3;color:var(--green);border-color:#b9e1d2}.step.current{background:#eaf3ff;color:var(--blue);border-color:#bfd8ff}.labelbox{border:2px dashed #aac6d9;border-radius:14px;padding:16px;background:#fcfeff}.qr{width:150px;height:150px;display:grid;grid-template-columns:repeat(21,1fr);grid-template-rows:repeat(21,1fr);background:white;border:10px solid white;box-shadow:0 0 0 1px var(--line)}.qr i{background:#111}.audit{font-size:13px;color:var(--muted);line-height:1.8}@media(max-width:980px){
+.topbar{height:64px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:20}.brand{font-weight:900;color:var(--navy);font-size:20px}.badge{display:inline-flex;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800}.green{background:#e8f7f1;color:var(--green)}.blue{background:#eaf3ff;color:var(--blue)}.orange{background:#fff3df;color:#9d671d}.layout{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 64px)}.sidebar{background:#173a5e;color:#dce9f4;padding:20px 14px}.side-title{font-size:12px;opacity:.65;margin:6px 10px 12px}.nav{display:grid;gap:8px}.nav button{border:0;background:transparent;color:#dce9f4;text-align:left;padding:12px;border-radius:10px;font-weight:800;cursor:pointer}.nav button.active,.nav button:hover{background:#245379;color:#fff}.main{padding:24px}.hero{background:linear-gradient(135deg,#173a5e,#1d79e8);color:white;padding:22px;border-radius:20px}.hero h1{margin:4px 0 6px;font-size:30px}.hero p{margin:0;color:#e5f1fb}.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:16px}.kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.kpi b{font-size:28px;color:var(--navy);display:block}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:16px;box-shadow:0 10px 24px rgba(30,70,105,.05)}.card h2{margin:0 0 8px;color:var(--navy)}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}input,select{padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfdff}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:12px;border-bottom:1px solid #edf2f5;font-size:14px}th{color:#5f7488;font-size:12px;text-transform:uppercase}tr:hover{background:#f7fbfe}.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:900;cursor:pointer}.primary{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff}.secondary{background:#edf5ff;color:var(--blue)}.ghost{background:#fff;border:1px solid var(--line);color:var(--navy)}.hidden{display:none!important}.order-header{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.info{background:#f8fbfd;border:1px solid var(--line);border-radius:14px;padding:14px}.info b{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}.med{display:grid;grid-template-columns:1.3fr .7fr .7fr .6fr;gap:10px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px;margin-top:9px}.checklist{display:grid;gap:10px}.check{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fbfdff}.check input{width:18px;height:18px}.zone{display:grid;grid-template-columns:1fr 1fr;gap:12px}.zonebox{border:1px solid var(--line);border-radius:14px;padding:14px}.zonebox h3{margin:0 0 8px;color:var(--navy)}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.step{padding:12px;border-radius:12px;background:#f3f6f8;border:1px solid var(--line);font-size:13px;font-weight:800}.step.done{background:#eaf8f3;color:var(--green);border-color:#b9e1d2}.step.current{background:#eaf3ff;color:var(--blue);border-color:#bfd8ff}.labelbox{border:2px dashed #aac6d9;border-radius:14px;padding:16px;background:#fcfeff}.qr{width:150px;height:150px;display:grid;grid-template-columns:repeat(21,1fr);grid-template-rows:repeat(21,1fr);background:white;border:10px solid white;box-shadow:0 0 0 1px var(--line)}.qr i{background:#111}.audit{font-size:13px;color:var(--muted);line-height:1.8}@media(max-width:980px){
 .layout{grid-template-columns:1fr}.sidebar{display:none}.main{padding:14px 14px 92px}
 .topbar{height:58px;padding:0 14px}.brand{font-size:17px}.topbar>div:last-child{display:none}
 .hero{padding:18px;border-radius:16px}.hero h1{font-size:24px;line-height:1.25}
@@ -17,7 +17,7 @@
 .med{grid-template-columns:1fr;gap:6px}.order-header{flex-direction:column}
 .card{padding:15px;border-radius:16px;overflow:hidden}
 .toolbar{display:grid;grid-template-columns:1fr}.toolbar input,.toolbar select{width:100%}
-.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}.table-scroll table{min-width:760px}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}.table-scroll table{min-width:760px}.track-layout{grid-template-columns:1fr}#hospitalMap{height:55vh;min-height:340px}
 .btn{min-height:46px;font-size:15px}.check{align-items:flex-start}
 .mobile-nav{display:grid!important}
 }
@@ -25,6 +25,12 @@
 .kpis{grid-template-columns:1fr}.timeline{grid-template-columns:1fr}
 .hero h1{font-size:22px}.card h2{font-size:20px}
 }
+#hospitalMap{height:440px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.track-layout{display:grid;grid-template-columns:1.4fr .6fr;gap:12px}
+.track-vehicle{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fbfdff;cursor:pointer}
+.track-vehicle.active{border-color:#68afff;background:#f0f7ff}
+.track-progress{height:8px;border-radius:999px;background:#e7eef3;overflow:hidden;margin-top:8px}.track-progress div{height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.track-row{display:flex;justify-content:space-between;gap:10px;padding:8px 10px;margin-top:7px;border-radius:10px;background:#f6f9fb;font-size:13px}
 .mobile-nav{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.98);border-top:1px solid var(--line);grid-template-columns:repeat(5,1fr);box-shadow:0 -8px 24px rgba(23,58,94,.08);padding-bottom:env(safe-area-inset-bottom)}
 .mobile-nav button{border:0;background:transparent;padding:9px 2px 8px;color:#62788b;font-size:10px;font-weight:800}
 .mobile-nav button.active{color:var(--blue);background:#f0f6ff}
@@ -37,7 +43,7 @@
 <button class="active" onclick="showPage('dashboard',this)">Dashboard</button>
 <button onclick="showPage('orders',this)">Order Queue</button>
 <button onclick="showPage('prepare',this)">Preparation</button>
-<button onclick="showPage('labels',this)">Labels & QR</button>
+<button onclick="showPage('labels',this)">Labels & QR</button><button onclick="showPage('tracking',this)">Live Tracking</button>
 <button onclick="showPage('ready',this)">Ready for Logistics</button>
 </div></aside>
 <main class="main">
@@ -63,6 +69,54 @@
 <div class="card" style="box-shadow:none;background:#f8fbfd"><h3 style="margin-top:0">Pharmacist Verification</h3><p>เภสัชกรเป็นผู้ยืนยันความถูกต้องก่อน Order เข้าสู่ขั้นตอน Logistics</p><div class="grid2"><div><label>เภสัชกรผู้ตรวจ</label><input value="ภก. กิตติศักดิ์ (Demo)"></div><div><label>หมายเหตุ</label><input value="ตรวจครบ 2 Bags / 2 Zones"></div></div><button class="btn primary" style="margin-top:12px" onclick="verifyOrder()">ยืนยันโดยเภสัชกร</button></div>
 </div></section>
 <section id="labels" class="hidden"><div class="card"><h2>Generate Labels & QR</h2><p>พิมพ์ Label แยกตาม Bag เพื่อใช้สแกนในขั้นตอนส่งเข้าตู้</p><div class="grid2"><div class="labelbox"><h3>AMBIENT BAG 1/2</h3><p><b>Order:</b> ML-2026-1048</p><p><b>HN:</b> HN-248105</p><p><b>Destination:</b> MediLocker CentralWorld</p><p><b>Zone:</b> Ambient</p><div class="qr" id="qr1"></div><button class="btn secondary" style="margin-top:12px">Print Label</button></div><div class="labelbox"><h3>COLD BAG 2/2</h3><p><b>Order:</b> ML-2026-1048</p><p><b>HN:</b> HN-248105</p><p><b>Destination:</b> MediLocker CentralWorld</p><p><b>Zone:</b> Cold</p><div class="qr" id="qr2"></div><button class="btn secondary" style="margin-top:12px">Print Label</button></div></div></div></section>
+
+<section id="tracking" class="hidden">
+  <div class="card">
+    <div class="order-header">
+      <div><h2>Live Tracking</h2><p class="muted">ติดตามยา Order ML-2026-1048 หลังส่งมอบให้ MediLocker Logistics</p></div>
+      <span class="badge blue">In Transit</span>
+    </div>
+    <div class="track-layout" style="margin-top:14px">
+      <div id="hospitalMap"></div>
+      <div>
+        <div class="track-vehicle active" id="hv1" onclick="hospitalFocus(0)">
+          <b>ML-VAN-03</b><span class="badge blue" style="float:right">In Transit</span>
+          <p>Driver: Somchai 02</p>
+          <p>Hospital → MediLocker เซ็นทรัลเวิลด์</p>
+          <div class="track-progress"><div style="width:62%"></div></div>
+          <div class="track-row"><span>Order</span><b>ML-2026-1048</b></div>
+          <div class="track-row"><span>Storage</span><b>Ambient + Cold</b></div>
+          <div class="track-row"><span>สถานะยา</span><b>กำลังขนส่ง</b></div>
+        </div>
+        <div class="track-vehicle" id="hv2" onclick="hospitalFocus(1)" style="margin-top:10px">
+          <b>ML-VAN-05</b><span class="badge orange" style="float:right">Arriving</span>
+          <p>Driver: Narin 05</p>
+          <p>Hospital → MediLocker ชุมชนลาดกระบัง</p>
+          <div class="track-progress"><div style="width:84%"></div></div>
+          <div class="track-row"><span>Order</span><b>ML-2026-1062</b></div>
+          <div class="track-row"><span>Storage</span><b>Ambient</b></div>
+          <div class="track-row"><span>สถานะยา</span><b>ใกล้ถึงตู้</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Medicine Status Timeline</h2>
+    <div class="timeline">
+      <div class="step done">✓ Pharmacy Verified</div>
+      <div class="step done">✓ Handed to Logistics</div>
+      <div class="step current">3. In Transit</div>
+      <div class="step">4. Arrived at Locker</div>
+      <div class="step">5. Loaded</div>
+    </div>
+    <div class="grid3" style="margin-top:14px">
+      <div class="info"><b>Order</b><span id="hOrder">ML-2026-1048</span></div>
+      <div class="info"><b>Storage</b><span id="hZone">Ambient + Cold</span></div>
+      <div class="info"><b>Destination</b><span id="hDest">MediLocker เซ็นทรัลเวิลด์</span></div>
+    </div>
+  </div>
+</section>
 <section id="ready" class="hidden"><div class="card"><h2>Ready for MediLocker Logistics</h2><div class="timeline"><div class="step done">✓ Order Received</div><div class="step done">✓ Prepared</div><div class="step done">✓ Pharmacist Verified</div><div class="step current">4. Ready for Pickup</div><div class="step">5. Handed to Logistics</div></div>
 <div class="grid2" style="margin-top:16px"><div class="info"><b>Order</b><span>ML-2026-1048</span></div><div class="info"><b>Total Bags</b><span>2 Bags / 2 Zones</span></div><div class="info"><b>Destination</b><span>MediLocker CentralWorld</span></div><div class="info"><b>Batch</b><span>14:00 Route</span></div></div>
 <div style="margin-top:16px;padding:14px;border-radius:14px;background:#eaf8f3;border:1px solid #bfe5d6;color:#236f58">Order นี้พร้อมให้ MediLocker Logistics มารับจากจุด Dispatch ของโรงพยาบาลแล้ว</div>
@@ -73,15 +127,45 @@
 <button class="active" onclick="mobileShow('dashboard',this)"><span>⌂</span>Dashboard</button>
 <button onclick="mobileShow('orders',this)"><span>☷</span>Orders</button>
 <button onclick="mobileShow('prepare',this)"><span>💊</span>Prepare</button>
-<button onclick="mobileShow('labels',this)"><span>▦</span>Labels</button>
+<button onclick="mobileShow('labels',this)"><span>▦</span>Labels</button><button onclick="mobileShow('tracking',this)"><span>⌖</span>Track</button>
 <button onclick="mobileShow('ready',this)"><span>✓</span>Ready</button>
 </nav>
 <script>
-function showPage(id,btn){document.querySelectorAll('main section').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
-function mobileShow(id,btn){document.querySelectorAll('main section').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.mobile-nav button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.textContent.toLowerCase().includes(id==='dashboard'?'dashboard':id==='orders'?'order':id==='prepare'?'preparation':id==='labels'?'labels':'ready')));window.scrollTo({top:0,behavior:'smooth'})}
+function showPage(id,btn){document.querySelectorAll('main section').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(id==='tracking')setTimeout(initHospitalMap,150)}
+function mobileShow(id,btn){document.querySelectorAll('main section').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.mobile-nav button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(id==='tracking')setTimeout(initHospitalMap,150)}
 function openOrder(){const prepBtn=[...document.querySelectorAll('.nav button')].find(b=>b.textContent.includes('Preparation'));showPage('prepare',prepBtn)}
 function verifyOrder(){const checks=[...document.querySelectorAll('.prepcheck')];if(checks.some(x=>!x.checked)){alert('กรุณาตรวจ Checklist ให้ครบก่อนยืนยัน');return}document.getElementById('prepStatus').textContent='Verified';document.getElementById('prepStatus').className='badge green';alert('เภสัชกรยืนยัน Order เรียบร้อยแล้ว')}
 function handoff(){document.getElementById('audit').innerHTML+='<br>14:10 — Order handed to MediLocker Logistics';alert('บันทึกการส่งมอบให้ Logistics แล้ว')}
 function fakeQR(id,seed){const box=document.getElementById(id);let n=21;for(let y=0;y<n;y++){for(let x=0;x<n;x++){const cell=document.createElement('i');const finder=(x<7&&y<7)||(x>13&&y<7)||(x<7&&y>13);const v=finder||((x*y+x*3+y*5+seed)%7<3);if(!v)cell.style.background='white';box.appendChild(cell)}}}
 fakeQR('qr1',3);fakeQR('qr2',5);
+</script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const hospitalVehicles=[
+ {id:"ML-VAN-03",lat:13.7548,lng:100.5318,order:"ML-2026-1048",zone:"Ambient + Cold",dest:"MediLocker เซ็นทรัลเวิลด์"},
+ {id:"ML-VAN-05",lat:13.7040,lng:100.7130,order:"ML-2026-1062",zone:"Ambient",dest:"MediLocker ชุมชนลาดกระบัง"}
+];
+let hospitalMap,hospitalMarkers=[];
+function initHospitalMap(){
+  if(hospitalMap){hospitalMap.invalidateSize();return}
+  hospitalMap=L.map("hospitalMap").setView([13.7563,100.5018],11);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap"}).addTo(hospitalMap);
+  const pts=[
+    ["MediLocker เซ็นทรัลเวิลด์",13.7466,100.5393],["MediLocker สยามพารากอน",13.7462,100.5347],["MediLocker เซ็นทรัล ลาดพร้าว",13.8164,100.5617],
+    ["MediLocker เดอะมอลล์ไลฟ์สโตร์ งามวงศ์วาน",13.8554,100.5420],["MediLocker ฟิวเจอร์พาร์ค รังสิต",13.9894,100.6183],["MediLocker เมกาบางนา",13.6465,100.6804],
+    ["MediLocker เซ็นทรัล เวสต์เกต",13.8763,100.4116],["MediLocker ชุมชนปากเกร็ด",13.9125,100.4988],["MediLocker ชุมชนบางบัวทอง",13.9183,100.4240],
+    ["MediLocker ชุมชนพระประแดง",13.6590,100.5334],["MediLocker ชุมชนศาลายา",13.7944,100.3230],["MediLocker ชุมชนลาดกระบัง",13.7210,100.7590]
+  ];
+  pts.forEach(p=>L.circleMarker([p[1],p[2]],{radius:6,color:"#1d79e8",fillColor:"#46c6ef",fillOpacity:1}).addTo(hospitalMap).bindPopup("<b>"+p[0]+"</b>"));
+  hospitalMarkers=hospitalVehicles.map(v=>L.marker([v.lat,v.lng]).addTo(hospitalMap).bindPopup("<b>🚚 "+v.id+"</b><br>"+v.order+"<br>"+v.dest));
+  L.polyline([[13.7410,100.5100],[13.7548,100.5318],[13.7466,100.5393]],{color:"#1677ff",weight:4,dashArray:"7 7"}).addTo(hospitalMap);
+}
+function hospitalFocus(i){
+  document.querySelectorAll(".track-vehicle").forEach(x=>x.classList.remove("active"));
+  document.getElementById("hv"+(i+1)).classList.add("active");
+  const v=hospitalVehicles[i];
+  document.getElementById("hOrder").textContent=v.order;
+  document.getElementById("hZone").textContent=v.zone;
+  document.getElementById("hDest").textContent=v.dest;
+  if(hospitalMap){hospitalMap.setView([v.lat,v.lng],14);hospitalMarkers[i].openPopup()}
+}
 </script></body></html>
